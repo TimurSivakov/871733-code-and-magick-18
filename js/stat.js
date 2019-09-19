@@ -68,7 +68,7 @@ var getMaxElement = function (arr) {
  * @return {number} saturation
  */
 
-var getRandomSaturation = function (min, max) {
+var getRandomInteger = function (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
@@ -98,7 +98,7 @@ window.renderStatistics = function (ctx, names, times) {
     if (names[i] === 'Вы') {
       var barColor = RED;
     } else {
-      barColor = 'hsl(' + 240 + ',' + getRandomSaturation(0, 101) + '%,' + 50 + '%)';
+      barColor = 'hsl(' + 240 + ',' + getRandomInteger(0, 101) + '%,' + 50 + '%)';
     }
     ctx.fillStyle = barColor;
     var barHeightProportion = BAR_HEIGHT * times[i] / maxTime;
