@@ -68,7 +68,7 @@ var getMaxElement = function (arr) {
  * @return {number} saturation
  */
 
-var getRandomSaturation = function (min, max) {
+var getRandomInteger = function (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
@@ -93,14 +93,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillStyle = BLACK;
     ctx.fillText(names[i], CLOUD_X + (GAP * 4) + TOTAL_BAR_WIDTH * i, BAR_Y + BAR_HEIGHT + GAP * 3);
     ctx.fillText(Math.round(times[i]), CLOUD_X + (GAP * 4) + TOTAL_BAR_WIDTH * i, BAR_Y);
-
-
-    if (names[i] === 'Вы') {
-      var barColor = RED;
-    } else {
-      barColor = 'hsl(' + 240 + ',' + getRandomSaturation(0, 101) + '%,' + 50 + '%)';
-    }
-    ctx.fillStyle = barColor;
+    ctx.fillStyle = names[i] === 'Вы' ? RED : 'hsl(' + 240 + ',' + getRandomInteger(0, 101) + '%,' + 50 + '%)';
     var barHeightProportion = BAR_HEIGHT * times[i] / maxTime;
     var barAxisX = BAR_X + TOTAL_BAR_WIDTH * i;
     var barAxisY = BAR_Y + GAP + BAR_HEIGHT - barHeightProportion;
