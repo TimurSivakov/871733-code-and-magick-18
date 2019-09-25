@@ -95,12 +95,18 @@ var onPopupEscPress = function (evt) {
 };
 
 /**
- * Функция открывает popup
+ * Функция открывает popup, вызывает функцию генерации волшебников
  */
 var openPopup = function () {
   setup.classList.remove('hidden');
   setupFunction(SetupSimilar);
   document.addEventListener('keydown', onPopupEscPress);
+  var fragment = document.createDocumentFragment();
+  var wizards = generateWizardsArray(FIRST_NAMES, LAST_NAMES, WIZARDS_COLORS, EYES_COLORS);
+  for (var i = 0; i < wizards.length; i++) {
+    fragment.appendChild(renderWizard(wizards[i]));
+  }
+  similarListElement.appendChild(fragment);
 };
 
 /**
@@ -162,12 +168,4 @@ setupWizardEyes.addEventListener('click', function () {
 setupFireball.addEventListener('click', function () {
   changeSetupWizardsColor(setupFireball, FIREBALL_COLORS, fireballInput, 'backgroundColor');
 });
-
-var fragment = document.createDocumentFragment();
-var wizards = generateWizardsArray(FIRST_NAMES, LAST_NAMES, WIZARDS_COLORS, EYES_COLORS);
-for (var i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
-}
-similarListElement.appendChild(fragment);
-
 
