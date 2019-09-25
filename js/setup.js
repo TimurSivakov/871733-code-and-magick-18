@@ -99,6 +99,7 @@ var onPopupEscPress = function (evt) {
  */
 var openPopup = function () {
   setup.classList.remove('hidden');
+  setupFunction(SetupSimilar);
   document.addEventListener('keydown', onPopupEscPress);
 };
 
@@ -168,5 +169,5 @@ for (var i = 0; i < wizards.length; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
 }
 similarListElement.appendChild(fragment);
-setupFunction(SetupSimilar);
+
 
