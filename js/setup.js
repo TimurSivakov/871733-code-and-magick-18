@@ -19,17 +19,17 @@ var WIZARDS_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 
 var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARDS_ARRAY_LENGTH = 4;
-var SETUP_SIMILAR = '.setup-similar';
+var SetupSimilar = document.querySelector('.setup-similar');
 var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
 
 /**
  * Функция удаляет у элемента класс .hidden
- * @param {string} className
+ * @param {{}} className
  * @return {void} возвращает элемент без класса .hidden
  */
 var setupFunction = function (className) {
-  return document.querySelector(className).classList.remove('hidden');
+  return className.classList.remove('hidden');
 };
 
 /**
@@ -168,5 +168,5 @@ for (var i = 0; i < wizards.length; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
 }
 similarListElement.appendChild(fragment);
-setupFunction(SETUP_SIMILAR);
+setupFunction(SetupSimilar);
 
